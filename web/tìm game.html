@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Search</title>
+    <style>
+        /* Thiết lập cơ bản cho toàn trang */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c; 
+            color: #f2f2f2; 
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Căn giữa nội dung và tạo container */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2c2c2c; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+
+        /* Định dạng tiêu đề */
+        h1 {
+            text-align: center;
+            color: #00ccff; 
+            font-size: 32px;
+        }
+
+        /* Thiết kế thanh tìm kiếm */
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3c3c3c; 
+            color: #fff; 
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+
+        /* Style khi focus vào input */
+        input[type="text"]:focus {
+            outline: none; 
+            background-color: #444;
+        }
+        /* Định dạng danh sách các game */
+        ul {
+            list-style-type: none; 
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Thiết kế cho từng mục game */
+        li {
+            background-color: #3c3c3c; 
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        /* Hiệu ứng hover khi di chuột vào mục game */
+        li:hover {
+            background-color: #555; 
+        }
+
+        /* Màu chữ cho danh sách game */
+        li a {
+            color: #00ccff; 
+            text-decoration: none; 
+            font-size: 18px;
+        }
+
+        li a:hover {
+            text-decoration: underline; 
+        }
+
+        /* Định dạng mô tả game */
+        .description {
+            color: #b0b0b0; 
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Search for a Game</h1>
+        <input type="text" id="gameSearch" onkeyup="searchGame()" placeholder="Search for games...">
+        
+        <ul id="gameList">
+            <li>
+                <a href="https://www.leagueoflegends.com" target="_blank">League of Legends</a>
+                <p class="description">League of Legends là một trò chơi điện tử thuộc thể loại MOBA (Multiplayer Online Battle Arena) do Riot Games phát triển và phát hành. Trò chơi được phát hành lần đầu vào năm 2009 và nhanh chóng trở thành một trong những game phổ biến nhất thế giới.</p>
+            </li>
+            <li>
+                <a href="https://www.callofduty.com" target="_blank">Call of Duty</a>
+                <p class="description">Call of Duty là một loạt trò chơi điện tử thuộc thể loại bắn súng góc nhìn thứ nhất (first-person shooter - FPS), được phát triển bởi nhiều nhà phát triển khác nhau, nhưng nổi bật nhất là Infinity Ward, Treyarch và Sledgehammer Games. Được phát hành lần đầu vào năm 2003, Call of Duty nhanh chóng trở thành một trong những thương hiệu game nổi tiếng và thành công nhất trong ngành công nghiệp trò chơi điện tử.</p>
+            </li>
+            <li>
+                <a href="https://www.ea.com/games/fifa" target="_blank">FIFA 24</a>
+                <p class="description">FIFA 24 là phiên bản mới nhất trong loạt trò chơi điện tử bóng đá nổi tiếng FIFA, được phát triển bởi EA Sports. Trò chơi này tiếp tục truyền thống của các phiên bản trước, mang đến cho người chơi những trải nghiệm bóng đá chân thực và phong phú. Dưới đây là một số điểm nổi bật về FIFA 24.</p>
+            </li>
+            <li>
+                <a href="https://www.epicgames.com/fortnite" target="_blank">Fortnite</a>
+                <p class="description">Fortnite là một trò chơi điện tử nổi tiếng thuộc thể loại battle royale, phát triển bởi Epic Games và được phát hành lần đầu vào năm 2017. Trò chơi nhanh chóng trở thành một hiện tượng toàn cầu nhờ vào lối chơi hấp dẫn, đồ họa phong cách hoạt hình và sự sáng tạo trong các chế độ chơi. Dưới đây là những điểm nổi bật về Fortnite.</p>
+            </li>
+            <li>
+                <a href="https://www.minecraft.net" target="_blank">Minecraft</a>
+                <p class="description">Minecraft là một trò chơi điện tử thuộc thể loại sandbox, phát triển bởi Mojang Studios và được phát hành lần đầu vào năm 2011. Trò chơi nổi tiếng với khả năng sáng tạo không giới hạn và đồ họa phong cách khối vuông (blocky), cho phép người chơi khám phá, xây dựng và sinh tồn trong một thế giới mở rộng lớn. Dưới đây là một số điểm nổi bật về Minecraft.</p>
+            </li>
+            <li>
+                <a href="https://playvalorant.com" target="_blank">Valorant</a>
+                <p class="description">Valorant là một trò chơi điện tử thuộc thể loại bắn súng góc nhìn thứ nhất (FPS), được phát triển và phát hành bởi Riot Games. Trò chơi ra mắt chính thức vào tháng 6 năm 2020 và nhanh chóng thu hút được sự quan tâm lớn từ cộng đồng game thủ nhờ lối chơi chiến thuật độc đáo, kết hợp giữa yếu tố bắn súng và khả năng sử dụng kỹ năng của các nhân vật.</p>
+            </li>
+            <li>
+                <a href="https://playoverwatch.com" target="_blank">Overwatch 2</a>
+                <p class="description">Overwatch 2 là một trò chơi điện tử thuộc thể loại bắn súng góc nhìn thứ nhất (FPS) được phát triển và phát hành bởi Blizzard Entertainment. Ra mắt vào tháng 10 năm 2022, Overwatch 2 là phần tiếp theo của trò chơi nổi tiếng Overwatch, và tiếp tục truyền thống của series với lối chơi đồng đội và các nhân vật đa dạng.</p>
+            </li>
+            <li>
+                <a href="https://genshin.mihoyo.com" target="_blank">Genshin Impact</a>
+                <p class="description">Genshin Impact là một trò chơi điện tử thuộc thể loại hành động nhập vai (action role-playing game - ARPG) được phát triển và phát hành bởi miHoYo (nay là HoYoverse). Ra mắt vào tháng 9 năm 2020, trò chơi đã nhanh chóng thu hút một lượng lớn người chơi trên toàn thế giới nhờ vào đồ họa tuyệt đẹp, lối chơi phong phú và cốt truyện hấp dẫn.</p>
+            </li>
+            <li>
+                <a href="https://thewitcher.com/en/witcher3" target="_blank">The Witcher 3</a>
+                <p class="description">The Witcher 3 là một trò chơi điện tử thuộc thể loại nhập vai hành động (action role-playing game - ARPG) do CD Projekt Red phát triển và phát hành. Ra mắt vào tháng 5 năm 2015, trò chơi này là phần thứ ba trong loạt game The Witcher, dựa trên tiểu thuyết của tác giả Andrzej Sapkowski. The Witcher 3 được ca ngợi vì đồ họa tuyệt đẹp, cốt truyện sâu sắc và lối chơi phong phú.</p>
+            </li>
+            <li>
+                <a href="https://www.cyberpunk.net" target="_blank">Cyberpunk 2077</a>
+                <p class="description">Cyberpunk 2077 là một trò chơi điện tử nhập vai hành động (action role-playing game - ARPG) được phát triển bởi CD Projekt Red, nhà phát triển nổi tiếng với loạt game The Witcher. Ra mắt vào tháng 12 năm 2020, Cyberpunk 2077 diễn ra trong một thế giới tương lai đầy công nghệ cao và xã hội hỗn loạn, lấy bối cảnh ở thành phố Night City.</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function searchGame() {
+            // Lấy giá trị người dùng nhập vào
+            var input = document.getElementById('gameSearch').value.toUpperCase();
+            var ul = document.getElementById('gameList');
+            var li = ul.getElementsByTagName('li');
+
+            // Lặp qua tất cả các mục trong danh sách và ẩn những mục không khớp
+            for (var i = 0; i < li.length; i++) {
+                var game = li[i].textContent || li[i].innerText;
+                if (game.toUpperCase().indexOf(input) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
